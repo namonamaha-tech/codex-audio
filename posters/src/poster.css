@@ -9,6 +9,9 @@
 @font-face { font-family: "Grotesk"; font-weight: 700; src: url("fonts/SpaceGrotesk-Bold.ttf"); }
 @font-face { font-family: "Mono"; font-weight: 400; src: url("fonts/SpaceMono-Regular.ttf"); }
 @font-face { font-family: "Mono"; font-weight: 700; src: url("fonts/SpaceMono-Bold.ttf"); }
+@font-face { font-family: "Deva"; src: url("fonts/TiroDevanagariSanskrit-Regular.ttf"); }
+@font-face { font-family: "Deva"; font-style: italic; src: url("fonts/TiroDevanagariSanskrit-Italic.ttf"); }
+@font-face { font-family: "Rozha"; src: url("fonts/RozhaOne-Regular.ttf"); }
 
 :root {
   --ink: #000;
@@ -27,6 +30,7 @@ html, body { background: #9a9a9a; }
 body { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-family: var(--sans); color: var(--ink); }
 @media print { html, body { background: var(--paper); } .no-print { display: none !important; } }
 
+.poster > * { flex-shrink: 0; }
 .poster {
   position: relative;
   width: 210mm; height: 297mm;
@@ -119,3 +123,17 @@ body { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-family
 /* On-screen helper bar */
 .helper { width: 210mm; margin: 6mm auto 0; font: 500 12px/1.45 var(--sans); color: #111; background: #fff; padding: 10px 14px; border-radius: 8px; }
 .helper button { font: 700 12px var(--sans); padding: 6px 12px; border: 2px solid #000; background: #000; color: #fff; border-radius: 6px; cursor: pointer; margin-right: 6px; }
+
+/* Icons (Tabler: stroke, MDI: fill) */
+.ico { display: inline-block; width: 1em; height: 1em; vertical-align: -.14em; }
+svg.ico[stroke] { stroke-width: 1.8; }
+svg.ico:not([stroke]) { fill: currentColor; }
+.rule-ico { width: 9mm; height: 9mm; border: .4mm solid var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 5.2mm; flex: none; }
+.rule-ico.solid { background: var(--ink); color: var(--paper); }
+.rule h3 .ico { font-size: 1.15em; margin-right: 1.4mm; }
+
+/* Rough.js hand-drawn accents */
+.mark { position: relative; display: inline-block; }
+.mark .rough { position: absolute; pointer-events: none; overflow: visible; }
+.mark .rough-ellipse { left: -12%; top: -32%; width: 124%; height: 164%; }
+.mark .rough-underline { left: -2%; bottom: -36%; width: 104%; height: 40%; }

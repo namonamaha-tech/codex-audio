@@ -1,14 +1,15 @@
 # Dr. A. Velumani Desk Posters: Content, Layout & Generation Prompts
 
-Two A4 portrait posters (210 × 297 mm), designed for **black & white printing**.
-They are a matched series ("Desk Manifesto Nº 01 / Nº 02") with the same grid, fonts and founder band.
+Three A4 portrait posters (210 × 297 mm), designed for **black & white printing**.
+They are a matched series ("Desk Manifesto Nº 01 / 02 / 03") with the same grid, fonts and founder band.
 
 | File | What it is |
 |---|---|
 | `poster-1-focus.pdf` / `.png` | Poster 1, print-ready (A4 PDF; PNG is 2481 × 3509 px = 300 dpi) |
 | `poster-2-marathon.pdf` / `.png` | Poster 2, print-ready |
-| `poster-1-focus.html` / `poster-2-marathon.html` | Editable versions. Open in Chrome, click the photo frame (or paste an image) to add Dr. Velumani's photo, then **Print → Save as PDF** (A4, margins *None*, scale 100%, *Background graphics* ON) |
-| `src/` | Source (HTML/CSS, fonts, build script). Run `python3 posters/src/build.py` to rebuild. Put a file named `velumani.jpg` next to the built HTML files and it loads automatically |
+| `poster-3-gita.pdf` / `.png` | Poster 3 (Bhagavad Gita 2.41), print-ready |
+| `poster-1-focus.html` / `poster-2-marathon.html` / `poster-3-gita.html` | Editable versions. Open in Chrome, click the photo frame (or paste an image) to add Dr. Velumani's photo, then **Print → Save as PDF** (A4, margins *None*, scale 100%, *Background graphics* ON) |
+| `src/` | Source (HTML/CSS, fonts, icons, generators, build script). Run `python3 src/gen/make_tree.py`, then `python3 posters/src/build.py`, to rebuild. Put a file named `velumani.jpg` next to the built HTML files and it loads automatically |
 
 > **Founder photo:** this environment can't download images, so the posters ship with a marked photo frame (46 × 61 mm). Use one of three ways to add the photo: (1) add it in the HTML version and re-export the PDF, (2) give the prompts below to an image tool together with a reference photo, or (3) print the poster and glue a 46 × 61 mm photo into the frame. Use an official Thyrocare / press photo you have the right to use.
 
@@ -36,7 +37,8 @@ They are a matched series ("Desk Manifesto Nº 01 / Nº 02") with the same grid,
 | 5 | Section head | **THE CORE PHILOSOPHY** *Focus vs. Diversification* · 3 RULES | Anton caps + Playfair italic subtitle |
 | 6 | Rule 01 | **MONOTASK TO SCALE**: Do one thing and you can scale it *everywhere*. Do everything and you stay stuck in *one place*. | Big outline numeral "01", bold caps title, one line of body |
 | 7 | Rule 02 | **BEWARE THE DISTRACTION TRAP**: Running a dozen operations? Name the one that brings the most happiness, profit & growth. Can't pick one? That isn't diversification. **It's distraction.** | "it's distraction." reversed out in a black highlight bar |
-| 8 | Rule 03 | **FOLLOW THE SEQUENCE** ● → ●○○○: Succeed first at one single thing. Only then diversify. Never the other way round. | A small dot diagram shows "one first, then many" |
+| 8 | Rule 03 | **FOLLOW THE SEQUENCE** ● → ●○○○: Succeed first at one single thing. Only then diversify. Never the other way round. | A small dot diagram shows "one first, then many". Each rule title has a line icon (target, shuffle, stairs) |
+| 8b | **Gita strip** | Om · "THE GITA SAID IT FIRST · BG 2.41" + the full verse in Devanagari + "The resolute mind is ONE. The minds of the irresolute are MANY-BRANCHED and endless." — Krishna to Arjuna | Black cell with an Om symbol on the left; Devanagari (Tiro Devanagari Sanskrit) and the English line on the right |
 | 9 | Write-in box | **MY ONE THING TODAY:** ______ DATE __/__ | Bordered box with a dashed write-in line |
 | 10 | **Founder band** | See "Founder band" below | Full-bleed black block |
 
@@ -157,6 +159,104 @@ PharmEasy for ₹4,546 Cr → FY26 ₹829 Cr revenue, ₹163 Cr profit". Tiny fo
 Mood: calm, patient strength; endurance over speed. All text spelled exactly as given and crisply legible.
 ```
 
+## Open-source tools used
+
+Hugging Face and the PyTorch download server are blocked by this environment's network policy, and there is no GPU, so open-source AI image models (Stable Diffusion, FLUX, etc.) could not run here. The artwork is made the way a designer would make it, with open-source design tools:
+
+| Tool (source) | Licence | Used for |
+|---|---|---|
+| **Procedural generator** (`src/gen/make_tree.py`) + **OpenSimplex noise** (PyPI, GitHub `lmas/opensimplex`) | MIT | The Poster 3 illustration: a recursive fractal tree with roots, one trunk and a crown, and the many-branched bush, with organic noise wobble and a true variable-radius halftone halo |
+| **Rough.js** (GitHub `rough-stuff/rough`) | MIT | Hand-drawn marker accents: the circle around *ekeha* ("one, here"), the scribbled underline under *bahu-śākhā*, and the sketched arrow pointing at the trunk |
+| **Tabler Icons** (GitHub `tabler/tabler-icons`) | MIT | Line icons on every rule (target, shuffle, stairs, run, trend, sunrise, feather, briefcase, branch, plant, microscope) |
+| **Material Design Icons** (GitHub `Templarian/MaterialDesign`) | Apache-2.0 | The Om symbol and the "run-fast" runner silhouette on Poster 2 |
+| **Google Fonts**: Anton, Playfair Display, Space Grotesk, Space Mono, Tiro Devanagari Sanskrit, Rozha One | OFL | All typography, including the Sanskrit verse |
+| **Playwright + Chromium** | Apache-2.0 | Renders the HTML/SVG to A4 PDF and 300 dpi PNG |
+
+To use AI image models later, allow `huggingface.co` (and its CDN) in the environment's network settings. The prompts below also work in Midjourney, DALL·E, Ideogram, or FLUX/SDXL on your own machine.
+
+---
+
+## Poster 3: "One Trunk. Then Branches." (Bhagavad Gita 2.41)
+
+### The verse
+
+> व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन ।
+> बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम् ॥ २-४१ ॥
+>
+> *vyavasāyātmikā buddhir ekeha kuru-nandana / bahu-śākhā hy anantāś ca buddhayo 'vyavasāyinām*
+>
+> "O joy of the Kurus (Arjuna), on this path the resolute mind is **one** (single-pointed). The minds of the irresolute are **many-branched** and endless."
+
+The line you remembered as "ekah kuru nandan, bahu saaka anantasya" is this verse: *ekeha kuru-nandana … bahu-śākhā hy anantāś ca*.
+
+**Word by word:** *vyavasāya-ātmikā* resolute, determined · *buddhiḥ* intellect · *ekā* one · *iha* here, on this path · *kuru-nandana* "joy of the Kurus" (Arjuna) · *bahu-śākhāḥ* many-branched · *hi* indeed · *anantāḥ* endless · *ca* and · *buddhayaḥ* intellects · *avyavasāyinām* of those without resolve.
+
+**The entrepreneur's reading:** The resolute founder has **one** aim. The irresolute founder's mind keeps branching into new ideas and never finishes any of them. That is Velumani's rule exactly: *succeed first in one thing, then diversify.* A tree grows **one trunk first** and branches only once the trunk can carry them; a bush branches from the ground and never grows tall. Bonus insight: *vyavasāya*, the Gita's word for "resolve", is the everyday Hindi word for **business**.
+
+### Content, top to bottom
+
+| # | Zone | Content | How it appears |
+|---|---|---|---|
+| 1 | Header strip | `DESK MANIFESTO [Nº 03]` · `BHAGAVAD GĪTĀ · 2.41` | Series style |
+| 2 | Ornament line | SHRI KRISHNA TO ARJUNA · KURUKSHETRA · Om · CHAPTER 2 · VERSE 41 | Rules either side of an Om symbol |
+| 3 | **Verse (the hero)** | Devanagari verse, then the IAST transliteration, then the translation with **ONE** and **MANY-BRANCHED** in heavy caps | Large Sanskrit type. A hand-drawn circle around *ekeha* (one) and a scribbled underline under *bahu-śākhā* (many-branched) |
+| 4 | Headline | **ONE TRUNK. THEN BRANCHES.** *The Gita's image, and Velumani's rule for business.* | Anton, with "THEN" in outline |
+| 5 | Key words | vyavasāya · ekā · bahu-śākhā · ananta · avyavasāyin, with meanings | Compact two-column glossary |
+| 6 | **Illustration** | A bush of many branches with no trunk next to a tall tree, numbered: ① ROOTS, *vyavasāya*: a firm decision, made once · ② ONE TRUNK, focus on one thing for years until it succeeds · ③ BRANCHES, diversify only once the trunk can carry them · बहुशाखा: no trunk, spreads wide, never grows tall | Procedural fractal tree, halftone halo, soil hatching, hand-drawn arrow |
+| 7 | Read it like an entrepreneur | ① **A business is a resolve** (vyavasāya = business) · ② **Many branches = endless** · ③ **Trunk first, crown later** (Velumani's rule) · ④ **The proof is in the name**: *Thyro*-care began with thyroid tests alone, scaled that one thing nationwide, then branched into wider diagnostics | 2 × 2 grid with circular icons |
+| 8 | **Founder band** | Same as the series | |
+
+### Image-generation prompt for Poster 3
+
+```
+Design a vertical A4 (210×297 mm, 2480×3508 px, 300 dpi) poster, STRICTLY BLACK AND WHITE (pure black ink on
+white; tone only through halftone dots), for a monochrome laser printer. Same series style: Swiss editorial /
+neo-brutalist, heavy condensed sans headlines (Anton), bold italic serif (Playfair Display), monospace labels,
+an elegant Devanagari serif for Sanskrit (Tiro Devanagari Sanskrit), thick black rules, registration crosses in
+the top corners, small vertical edge text "EKĀ · ONE · THEN MANY".
+
+TOP: header strip "DESK MANIFESTO Nº 03" (black pill) left, "BHAGAVAD GĪTĀ · 2.41" right. Below, a centred
+ornament line: "SHRI KRISHNA TO ARJUNA · KURUKSHETRA" — an Om symbol — "CHAPTER 2 · VERSE 41", rules on both sides.
+
+VERSE (hero, centred): two large lines of Sanskrit in Devanagari, exactly:
+ "व्यवसायात्मिका बुद्धिरेकेह कुरुनन्दन ।"
+ "बहुशाखा ह्यनन्ताश्च बुद्धयोऽव्यवसायिनाम् ॥ २-४१ ॥"
+Under it, italic transliteration "vyavasāyātmikā buddhir ekeha kuru-nandana / bahu-śākhā hy anantāś ca buddhayo
+'vyavasāyinām", with a loose hand-drawn marker circle around "ekeha" and a scribbled underline under "bahu-śākhā".
+Then a bold italic serif translation: "“O joy of the Kurus, on this path the resolute mind is ONE. The minds of
+the irresolute are MANY-BRANCHED and endless.”" with ONE and MANY-BRANCHED in heavy condensed caps.
+
+ILLUSTRATION BAND (about 30% of page), with a thin rule above:
+ - Left column: headline "ONE TRUNK. THEN BRANCHES." (THEN in outlined letters), italic subline "The Gita's image,
+   and Velumani's rule for business.", and a small glossary titled KEY WORDS: vyavasāya — firm resolve; in Hindi
+   today, business / ekā — one, single-pointed / bahu-śākhā — many-branched / ananta — endless / avyavasāyin —
+   one without resolve.
+ - Right: a black-ink botanical diagram on a ground line with hatched soil. A small, messy bush whose many thin
+   stems split right from the ground, tipped with small hollow circles, never rising high (label below:
+   "बहुशाखा · many branches — No trunk: spreads wide, never grows tall"). Beside it a tall, majestic tree: visible
+   roots spreading under the ground, ONE thick, straight, tapering trunk with a few white bark lines, and only
+   at the top a wide, delicate fractal crown of branches with dot leaves, in front of a large halftone-dot halo.
+   Numbered callouts on the right with black circled numbers: "3 BRANCHES — Diversify, only once the trunk can
+   carry them." (crown), "2 ONE TRUNK — Focus on one thing, for years, until it succeeds." with a hand-drawn
+   arrow pointing at the trunk, "1 ROOTS — Vyavasāya: a firm decision, made once." (roots).
+
+SECTION "READ IT LIKE AN ENTREPRENEUR" (tag: "GĪTĀ × THYROCARE"), 2×2 grid, each item with a circular line icon:
+ briefcase — "A BUSINESS IS A RESOLVE: The Gita's word for resolve, vyavasāya, is the everyday Hindi word for
+   business. By its name, a venture is a decision you stick to."
+ git-branch — "MANY BRANCHES = ENDLESS: Ten side-projects each get a tenth of your time and money. None finishes.
+   Krishna's word for that mind: ananta, endless."
+ sprout — "TRUNK FIRST, CROWN LATER: Velumani: succeed first in one thing, then diversify. Branches grow from a
+   strong trunk; a bush never becomes a tree."
+ microscope — "THE PROOF IS IN THE NAME: Thyro-care began with thyroid tests alone, scaled that one thing
+   nationwide, and only then branched into wider diagnostics."
+
+BOTTOM FOUNDER BAND: identical to the series (full-bleed black; B&W photo of Dr. A. Velumani with white border and
+crop marks [attach reference photo]; huge white "DR. A. VELUMANI"; "Founder of THYROCARE — India's low-cost
+diagnostics pioneer"; stats "≈₹3,500 Cr" FOUNDER'S NET WORTH*, "₹7,500 Cr" THYROCARE'S VALUE TODAY,
+"829× / 28 yrs" REVENUE GROWTH; journey line; tiny footnote).
+Mood: timeless wisdom meets modern business; calm, clear, authoritative. Sanskrit must be reproduced exactly.
+```
+
 ---
 
 ## Founder band (shared): the facts and where they come from
@@ -176,3 +276,4 @@ Mood: calm, patient strength; endurance over speed. All text spelled exactly as 
 - *"People generally fall into two categories: those who are successful and those who were distracted."* This is used as you gave it. I couldn't find this exact wording in indexed press, though his "focus on one thing" message is widely reported (YourStory, Tamil Nadu Story 2024). It most likely comes from a video or podcast.
 - *"Startup is not a race, it's a marathon."* The headline is your phrasing. The quote line on the poster is his documented wording: *"it is not a 100 metre dash, it's a marathon race"* (The Core; People Matters; YourStory).
 - *"Define priorities and focus from 5.00 am, consistently."* From his X post (@velumania).
+- **Bhagavad Gita 2.41:** the text and word meanings were checked against shlokam.org, holy-bhagavad-gita.org and asitis.com. The English line is a plain rendering of the standard translations.
