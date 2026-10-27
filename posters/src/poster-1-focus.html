@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Successful or Distracted</title>
+<link rel="stylesheet" href="poster.css">
+<style>
+  .hero { margin-top: 6mm; }
+  .hero .lead { font: italic 700 17pt/1.15 var(--serif); }
+  .hero .lead .q { font: 900 40pt/0 var(--serif); vertical-align: -9pt; margin-right: 1mm; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; margin-top: 3.4mm; border: .6mm solid var(--ink); height: 78mm; }
+  .panel { position: relative; padding: 3.4mm 4mm; display: flex; flex-direction: column; overflow: hidden; }
+  .panel.win { background: var(--ink); color: var(--paper); }
+  .panel .small { font: italic 700 12pt/1 var(--serif); position: relative; z-index: 2; }
+  .panel .big { font: 400 35pt/.9 var(--display); text-transform: uppercase; letter-spacing: .005em; position: relative; z-index: 2; }
+  .panel svg { position: absolute; inset: auto 0 0 0; width: 100%; height: 56mm; }
+  .panel.lose .cap span { background: #fff; padding: .4mm .8mm; margin: -.4mm -.8mm; }
+  .panel .cap { position: absolute; bottom: 3mm; left: 4mm; right: 4mm; font: 700 6.2pt/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; z-index: 2; display: flex; justify-content: space-between; }
+  .panel.lose .big { letter-spacing: .02em; margin-top: 1.4mm; }
+  .panel.lose .big span { display: inline-block; }
+  .attrib { display: flex; justify-content: space-between; align-items: center; margin-top: 2.2mm; }
+  .attrib .who { font: 700 9pt/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+  .attrib .who::before { content: ""; display: inline-block; width: 10mm; height: .5mm; background: var(--ink); vertical-align: middle; margin-right: 2.4mm; }
+  .core { margin-top: 7mm; }
+  .core .rule { padding: 3.4mm 0; }
+  .core .rule h3 { font-size: 13pt; }
+  .core .rule p { font-size: 10.2pt; }
+  .core .num { font-size: 33pt; }
+  .rules { margin-top: 1mm; }
+  .seq { display: inline-flex; align-items: center; gap: 1.6mm; margin-left: 1.5mm; vertical-align: middle; }
+  .seq i { display: inline-block; width: 3mm; height: 3mm; border-radius: 50%; background: var(--ink); }
+  .seq i.o { background: none; border: .4mm solid var(--ink); width: 2.2mm; height: 2.2mm; }
+  .seq b { font: 700 9pt/1 var(--mono); }
+  .one { margin: 2.6mm 0 5mm; display: grid; grid-template-columns: auto 1fr auto; gap: 3mm; align-items: end; border: .5mm solid var(--ink); padding: 2.6mm 3.4mm; }
+  .one .t { font: 400 13pt/1 var(--display); text-transform: uppercase; letter-spacing: .02em; }
+  .one .line { border-bottom: .35mm dashed var(--ink); height: 5mm; }
+  .one .d { font: 700 6.4pt/1 var(--mono); letter-spacing: .14em; }
+</style>
+</head>
+<body>
+<main class="poster">
+  <i class="reg tl"></i><i class="reg tr"></i>
+  <div class="edge">FOCUS &middot; SCALE &middot; THEN DIVERSIFY</div>
+
+  <header class="top">
+    <span>Desk Manifesto <span class="pill">Nº 01</span></span>
+    <span>Focus &gt; Diversification</span>
+  </header>
+
+  <section class="hero">
+    <p class="lead"><span class="q">&ldquo;</span>People generally fall into two categories:</p>
+    <div class="split">
+      <div class="panel win">
+        <div class="small">those who are</div>
+        <div class="big">Success&shy;ful</div>
+        <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <defs>
+            <pattern id="dotsW" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3.5" cy="3.5" r="1.3" fill="#fff"/></pattern>
+            <radialGradient id="fadeW"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+            <mask id="mW"><circle cx="250" cy="140" r="120" fill="url(#fadeW)"/></mask>
+          </defs>
+          <rect width="400" height="240" fill="url(#dotsW)" mask="url(#mW)" opacity=".55"/>
+          <g fill="none" stroke="#fff">
+            <circle cx="250" cy="140" r="86" stroke-width="5"/>
+            <circle cx="250" cy="140" r="62" stroke-width="5"/>
+            <circle cx="250" cy="140" r="38" stroke-width="5"/>
+          </g>
+          <circle cx="250" cy="140" r="16" fill="#fff"/>
+          <!-- one straight arrow -->
+          <g stroke="#fff" stroke-linecap="round">
+            <line x1="20" y1="140" x2="238" y2="140" stroke-width="7"/>
+          </g>
+          <path d="M252 140 L226 126 L230 140 L226 154 Z" fill="#fff"/>
+          <path d="M20 140 l-14 -14 h16 l14 14 l-14 14 h-16 z M40 140 l-14 -14 h16 l14 14 l-14 14 h-16 z" fill="#fff"/>
+        </svg>
+        <div class="cap"><span>One target</span><span>01 &rarr; ∞</span></div>
+      </div>
+      <div class="panel lose">
+        <div class="small">and those who were</div>
+        <div class="big"><span>Dis</span><span style="transform:translateY(1.2mm) rotate(-4deg)">tra</span><span style="transform:translateY(-.6mm) rotate(5deg)">cted.</span><span class="serif-i" style="font-size:32pt;vertical-align:top;margin-left:.6mm">&rdquo;</span></div>
+        <svg viewBox="0 0 400 240" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#000"/></marker>
+          </defs>
+          <g fill="none" stroke="#000" stroke-width="3.2" stroke-linecap="round" marker-end="url(#ah)">
+            <path d="M40 200 C 90 120, 20 90, 70 50"/>
+            <path d="M60 220 C 140 210, 120 150, 190 170"/>
+            <path d="M120 120 C 150 60, 210 120, 230 40"/>
+            <path d="M200 210 C 230 170, 300 230, 340 180"/>
+            <path d="M260 120 C 230 80, 300 60, 360 80"/>
+            <path d="M150 190 C 120 160, 90 180, 60 140" stroke-dasharray="7 6"/>
+            <path d="M300 160 C 360 150, 330 110, 380 120" stroke-dasharray="7 6"/>
+            <path d="M210 120 C 190 150, 250 160, 270 200"/>
+            <path d="M330 220 C 300 200, 270 240, 240 230" stroke-dasharray="3 6"/>
+          </g>
+          <g fill="none" stroke="#000" stroke-width="2.2">
+            <circle cx="72" cy="40" r="10"/><circle cx="236" cy="30" r="8"/><circle cx="368" cy="78" r="11"/>
+            <circle cx="350" cy="174" r="9"/><circle cx="50" cy="132" r="7"/><circle cx="198" cy="172" r="8"/>
+          </g>
+        </svg>
+        <div class="cap"><span>Twelve targets</span><span>12 &rarr; 0</span></div>
+      </div>
+    </div>
+    <div class="attrib">
+      <span class="who">Dr. A. Velumani</span>
+      <span class="kicker">Founder, Thyrocare</span>
+    </div>
+  </section>
+
+  <section class="core">
+    <div class="sec-head">
+      <h2>The Core Philosophy</h2>
+      <span class="sub">Focus vs. Diversification</span>
+      <span class="tag kicker">3 rules</span>
+    </div>
+    <div class="rules">
+      <div class="rule">
+        <div class="num">01</div>
+        <div>
+          <h3>Monotask to scale</h3>
+          <p>Do <b>one thing</b> and you can scale it <span class="ul">everywhere</span>. Do everything and you stay stuck in <span class="ul">one place</span>.</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="num">02</div>
+        <div>
+          <h3>Beware the distraction trap</h3>
+          <p>Running a dozen operations? Name the <b>one</b> that brings the most <b>happiness, profit &amp; growth</b>. Can't pick one? That isn't diversification &mdash; <span class="hl">it's distraction.</span></p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="num">03</div>
+        <div>
+          <h3>Follow the sequence
+            <span class="seq"><i></i><b>&rarr;</b><i></i><i class="o"></i><i class="o"></i><i class="o"></i></span>
+          </h3>
+          <p><b>Succeed first</b> at one single thing. <b>Only then</b> diversify. Never the other way round.</p>
+        </div>
+      </div>
+    </div>
+    <div class="one">
+      <span class="t">My one thing today:</span>
+      <span class="line"></span>
+      <span class="d">DATE ___/___</span>
+    </div>
+  </section>
+
+  {{FOUNDER}}
+</main>
+{{HELPER}}
+</body>
+</html>

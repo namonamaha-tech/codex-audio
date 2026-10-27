@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not a Race, a Marathon</title>
+<link rel="stylesheet" href="poster.css">
+<style>
+  .head { margin-top: 4.4mm; position: relative; }
+  .head h1 { font: 400 47pt/.9 var(--display); text-transform: uppercase; letter-spacing: .005em; }
+  .head h1 .strike { position: relative; display: inline-block; color: var(--paper); -webkit-text-stroke: .5mm var(--ink); }
+  .head h1 .strike::after { content: ""; position: absolute; left: -2%; right: -2%; top: 52%; height: 2.2mm; background: var(--ink); transform: rotate(-4deg); }
+  .head h1 .big { display: block; font-size: 71pt; line-height: .94; }
+  .scene .badge { position: absolute; left: 13mm; top: 2mm; background: #fff; width: 27mm; height: 27mm; border-radius: 50%; border: .6mm solid var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(8deg); }
+  .scene .badge b { font: 400 15pt/1 var(--display); }
+  .scene .badge span { font: 700 5.6pt/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+  .scene .badge::before { content: ""; position: absolute; inset: 1.4mm; border-radius: 50%; border: .25mm dashed var(--ink); }
+  .scene { position: relative; margin: 2mm -11mm 0; height: 64mm; }
+  .scene svg { width: 100%; height: 100%; display: block; }
+  .quote2 { display: grid; grid-template-columns: auto 1fr; gap: 3mm; align-items: center; margin-top: 2.4mm; }
+  .quote2 .q { font: 900 46pt/.6 var(--serif); padding-top: 4mm; }
+  .quote2 p { font: italic 700 14pt/1.2 var(--serif); }
+  .quote2 small { display: block; font: 700 7pt/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; font-style: normal; margin-top: 1.6mm; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; margin-top: 1mm; }
+  .grid2 .rule { grid-template-columns: 13mm 1fr; padding: 1.8mm 0; border-bottom: .2mm solid #000; }
+  .grid2 .rule:nth-last-child(-n+2) { border-bottom: none; }
+  .grid2 .num { font-size: 25pt; }
+  .grid2 .rule h3 { font-size: 10.6pt; }
+  .grid2 .rule p { font-size: 8.5pt; line-height: 1.33; }
+  .race-day { margin: 2mm 0 4mm; display: grid; grid-template-columns: auto 1fr; gap: 3mm; align-items: center; background: repeating-linear-gradient(90deg, #000 0 1mm, #fff 1mm 2mm); padding: .9mm; }
+  .race-day > * { background: #fff; }
+  .race-day .t { font: 400 12pt/1 var(--display); text-transform: uppercase; letter-spacing: .02em; padding: 2mm 3mm; background: #000; color: #fff; }
+  .race-day .s { font: 700 7.4pt/1.3 var(--mono); letter-spacing: .06em; padding: 2mm 3mm; }
+  .core { margin-top: 2.6mm; }
+  .edge { top: 150mm; }
+</style>
+</head>
+<body>
+<main class="poster">
+  <i class="reg tl"></i><i class="reg tr"></i>
+  <div class="edge">PACE &middot; CONSISTENCY &middot; STAMINA</div>
+
+  <header class="top">
+    <span>Desk Manifesto <span class="pill">Nº 02</span></span>
+    <span>The long game</span>
+  </header>
+
+  <section class="head">
+    <h1>Startup is not a <span class="strike">race.</span>
+      <span class="big">It's a marathon.</span></h1>
+  </section>
+
+  <section class="scene">
+    <div class="badge"><b>42.195</b><span>km &middot; not<br>100 m</span></div>
+    <svg viewBox="0 0 1000 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <pattern id="sunDots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="3.3" fill="#000"/></pattern>
+        <radialGradient id="sunFade" cx=".5" cy=".5" r=".5"><stop offset=".25" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></radialGradient>
+        <mask id="sunMask"><circle cx="560" cy="150" r="118" fill="url(#sunFade)"/></mask>
+        <pattern id="field" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.1" fill="#000"/></pattern>
+        <clipPath id="sky"><rect width="1000" height="150"/></clipPath>
+        <clipPath id="ground"><rect y="150" width="1000" height="230"/></clipPath>
+      </defs>
+      <!-- halftone sun on the horizon -->
+      <g clip-path="url(#sky)"><rect x="430" y="20" width="260" height="140" fill="url(#sunDots)" mask="url(#sunMask)"/></g>
+      <!-- distant hills -->
+      <path d="M0 150 L120 128 L210 140 L330 112 L430 138 L520 150 Z M640 150 L740 120 L820 136 L920 108 L1000 126 L1000 150 Z" fill="#000"/>
+      <line x1="0" y1="150" x2="1000" y2="150" stroke="#000" stroke-width="3"/>
+      <!-- fields -->
+      <g clip-path="url(#ground)">
+        <rect y="150" width="1000" height="230" fill="url(#field)" opacity=".55"/>
+        <g stroke="#000" stroke-width="1.6" opacity=".6">
+          <line x1="560" y1="150" x2="-400" y2="380"/><line x1="560" y1="150" x2="-100" y2="380"/>
+          <line x1="560" y1="150" x2="1500" y2="380"/><line x1="560" y1="150" x2="1250" y2="380"/>
+        </g>
+      </g>
+      <!-- the long winding road -->
+      <path d="M150 380 C 330 300, 760 290, 640 225 C 560 190, 470 182, 552 151 L 566 151 C 500 182, 620 192, 700 225 C 860 290, 560 320, 860 380 Z" fill="#000"/>
+      <path d="M505 380 C 610 320, 790 290, 670 226 C 600 192, 500 180, 559 152" fill="none" stroke="#fff" stroke-width="5" stroke-dasharray="22 16"/>
+      <!-- milestones along the road -->
+      <g font-family="Space Mono, monospace" font-weight="700" text-anchor="middle">
+        <g transform="translate(150 300)"><rect x="-4" y="0" width="8" height="70" fill="#000"/><rect x="-58" y="-46" width="116" height="50" fill="#fff" stroke="#000" stroke-width="4"/><text y="-26" font-size="15">START · 1996</text><text y="-8" font-size="13">&#8377;1 lakh</text></g>
+        <g transform="translate(340 236)"><rect x="-3" y="0" width="6" height="50" fill="#000"/><rect x="-48" y="-38" width="96" height="42" fill="#fff" stroke="#000" stroke-width="3.5"/><text y="-21" font-size="12.5">KM 2 · 1998</text><text y="-6" font-size="11">&#8377;1 Cr sales</text></g>
+        <g transform="translate(790 214) scale(.82)"><rect x="-3" y="0" width="6" height="50" fill="#000"/><rect x="-78" y="-40" width="156" height="44" fill="#fff" stroke="#000" stroke-width="3.5"/><text y="-22" font-size="12.5">KM 20 · 2016</text><text y="-7" font-size="11">IPO · 73× subscribed</text></g>
+        <g transform="translate(470 184)"><rect x="-2" y="0" width="4" height="30" fill="#000"/><rect x="-40" y="-30" width="80" height="33" fill="#fff" stroke="#000" stroke-width="3"/><text y="-16" font-size="10">KM 25 · 2021</text><text y="-4" font-size="9">&#8377;4,546 Cr exit</text></g>
+        <g transform="translate(640 172)"><rect x="-2" y="0" width="4" height="22" fill="#000"/><rect x="-36" y="-26" width="72" height="28" fill="#fff" stroke="#000" stroke-width="2.6"/><text y="-14" font-size="9">KM 30 · FY26</text><text y="-3" font-size="8">&#8377;829 Cr sales</text></g>
+      </g>
+      <!-- runner pictogram -->
+      <g transform="translate(560 262) scale(1.05)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <ellipse cx="2" cy="114" rx="46" ry="7" fill="#000" stroke="none" opacity=".35"/>
+        <g stroke="#fff" stroke-width="20">
+          <polyline points="-6,-6 -24,10 -42,4"/><polyline points="-14,50 -40,70 -66,62"/>
+          <polyline points="-14,50 6,78 0,108"/><line x1="0" y1="-12" x2="-14" y2="50"/><polyline points="-4,-6 16,12 34,-2"/>
+        </g>
+        <g stroke-width="12">
+          <polyline points="-6,-6 -24,10 -42,4"/>
+          <polyline points="-14,50 -40,70 -66,62"/>
+          <polyline points="-14,50 6,78 0,108"/>
+          <line x1="0" y1="-12" x2="-14" y2="50"/>
+          <polyline points="-4,-6 16,12 34,-2"/>
+        </g>
+        <circle cx="8" cy="-34" r="14" fill="#000" stroke="#fff" stroke-width="4"/>
+        <g stroke-width="3"><line x1="40" y1="-20" x2="62" y2="-20"/><line x1="44" y1="2" x2="70" y2="2"/><line x1="36" y1="24" x2="56" y2="24"/></g>
+      </g>
+    </svg>
+  </section>
+
+  <section class="quote2">
+    <span class="q">&ldquo;</span>
+    <p>It is not a 100-metre dash. It's a marathon.<small>&mdash; Dr. A. Velumani, on building a company</small></p>
+  </section>
+
+  <section class="core">
+    <div class="sec-head">
+      <h2>How to run it</h2>
+      <span class="sub">4 rules for the long road</span>
+      <span class="tag kicker">Km 0 &rarr; 42</span>
+    </div>
+    <div class="grid2">
+      <div class="rule">
+        <div class="num">01</div>
+        <div><h3>Pace yourself</h3><p>Sprinters burst and fade. Those who rush <b>find it hard to sustain</b> success. Pick a pace you can hold for years.</p></div>
+      </div>
+      <div class="rule">
+        <div class="num">02</div>
+        <div><h3>Let it compound</h3><p>Thyrocare grew about <span class="hl">25% a year for 25 years</span>. No magic &mdash; just the same good stride, year after year.</p></div>
+      </div>
+      <div class="rule">
+        <div class="num">03</div>
+        <div><h3>Show up at 5 a.m.</h3><p>&ldquo;Define priorities and <b>focus from 5:00 am, consistently</b>.&rdquo; Stamina is built daily, not on race day.</p></div>
+      </div>
+      <div class="rule">
+        <div class="num">04</div>
+        <div><h3>Run light, run one route</h3><p>No debt weighing you down, no four rabbits to chase. He built Thyrocare <b>debt-free</b>, on one problem.</p></div>
+      </div>
+    </div>
+    <div class="race-day">
+      <span class="t">Today's kilometre</span>
+      <span class="s">ONE STEP I'LL TAKE TODAY: ________________________________</span>
+    </div>
+  </section>
+
+  {{FOUNDER}}
+</main>
+{{HELPER}}
+</body>
+</html>

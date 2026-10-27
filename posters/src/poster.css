@@ -1,0 +1,121 @@
+/* Shared A4 black & white poster system */
+@font-face { font-family: "Anton"; src: url("fonts/Anton-Regular.ttf"); }
+@font-face { font-family: "Playfair"; font-weight: 700; src: url("fonts/PlayfairDisplay-Bold.ttf"); }
+@font-face { font-family: "Playfair"; font-weight: 900; src: url("fonts/PlayfairDisplay-Black.ttf"); }
+@font-face { font-family: "Playfair"; font-weight: 700; font-style: italic; src: url("fonts/PlayfairDisplay-BoldItalic.ttf"); }
+@font-face { font-family: "Playfair"; font-weight: 900; font-style: italic; src: url("fonts/PlayfairDisplay-BlackItalic.ttf"); }
+@font-face { font-family: "Grotesk"; font-weight: 400; src: url("fonts/SpaceGrotesk-Regular.ttf"); }
+@font-face { font-family: "Grotesk"; font-weight: 500; src: url("fonts/SpaceGrotesk-Medium.ttf"); }
+@font-face { font-family: "Grotesk"; font-weight: 700; src: url("fonts/SpaceGrotesk-Bold.ttf"); }
+@font-face { font-family: "Mono"; font-weight: 400; src: url("fonts/SpaceMono-Regular.ttf"); }
+@font-face { font-family: "Mono"; font-weight: 700; src: url("fonts/SpaceMono-Bold.ttf"); }
+
+:root {
+  --ink: #000;
+  --paper: #fff;
+  --grey: #6b6b6b;
+  --light: #e6e6e6;
+  --display: "Anton", "Liberation Sans Narrow", Impact, sans-serif;
+  --serif: "Playfair", Georgia, serif;
+  --sans: "Grotesk", "Inter", Arial, sans-serif;
+  --mono: "Mono", "JetBrains Mono", monospace;
+}
+
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #9a9a9a; }
+body { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-family: var(--sans); color: var(--ink); }
+@media print { html, body { background: var(--paper); } .no-print { display: none !important; } }
+
+.poster {
+  position: relative;
+  width: 210mm; height: 297mm;
+  margin: 0 auto;
+  background: var(--paper);
+  overflow: hidden;
+  padding: 10mm 11mm 0;
+  display: flex; flex-direction: column;
+}
+@media screen { .poster { margin: 8mm auto; box-shadow: 0 4mm 12mm rgba(0,0,0,.35); } }
+@media print { .poster { margin: 0; box-shadow: none; } }
+
+/* Vertical edge label */
+.edge {
+  position: absolute; right: 3.4mm; top: 36mm;
+  writing-mode: vertical-rl;
+  font: 700 5.6pt/1 var(--mono); letter-spacing: .26em; white-space: nowrap; color: var(--ink);
+}
+.reg { position: absolute; width: 5mm; height: 5mm; }
+.reg::before, .reg::after { content: ""; position: absolute; background: var(--ink); }
+.reg::before { left: 50%; top: 0; width: .25mm; height: 100%; }
+.reg::after { top: 50%; left: 0; height: .25mm; width: 100%; }
+.reg.tl { top: 3mm; left: 3mm; } .reg.tr { top: 3mm; right: 3mm; }
+
+/* Header strip */
+.top {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1.6mm solid var(--ink); border-bottom: .35mm solid var(--ink);
+  padding: 1.6mm 0 1.4mm;
+  font: 700 7pt/1 var(--mono); letter-spacing: .14em; text-transform: uppercase;
+}
+.top .pill { background: var(--ink); color: var(--paper); padding: 1mm 2.2mm; border-radius: 10mm; }
+
+.kicker { font: 700 7pt/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; }
+.serif-i { font-family: var(--serif); font-style: italic; font-weight: 700; }
+
+/* Section heading */
+.sec-head { display: flex; align-items: baseline; gap: 3mm; border-bottom: .35mm solid var(--ink); padding-bottom: 1.4mm; }
+.sec-head h2 { font: 400 22pt/1 var(--display); letter-spacing: .01em; text-transform: uppercase; }
+.sec-head .sub { font: italic 700 13pt/1 var(--serif); }
+.sec-head .tag { margin-left: auto; }
+
+/* Numbered rules */
+.rule { display: grid; grid-template-columns: 17mm 1fr; gap: 3mm; align-items: start; padding: 2.6mm 0; border-bottom: .2mm solid #000; }
+.rule:last-child { border-bottom: none; }
+.num { font: 400 30pt/.86 var(--display); color: var(--paper); -webkit-text-stroke: .45mm var(--ink); }
+.rule h3 { font: 700 12.2pt/1.1 var(--sans); text-transform: uppercase; letter-spacing: .01em; margin-bottom: 1mm; }
+.rule p { font: 400 9.6pt/1.38 var(--sans); }
+.rule p b { font-weight: 700; }
+.hl { background: var(--ink); color: var(--paper); padding: 0 1.2mm; font-weight: 700; }
+.ul { border-bottom: .5mm solid var(--ink); }
+
+/* Founder band */
+.founder {
+  margin: auto -11mm 0; /* pushes to bottom, full bleed */
+  background: var(--ink); color: var(--paper);
+  padding: 6mm 11mm 3.6mm;
+  display: grid; grid-template-columns: 47mm 1fr; column-gap: 6mm; row-gap: 2.6mm;
+}
+.photo {
+  position: relative; display: block; cursor: pointer;
+  width: 47mm; height: 61mm; background: var(--paper);
+  border: 1.4mm solid var(--paper); outline: .3mm solid var(--paper); outline-offset: 1.2mm;
+  overflow: hidden;
+}
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(1) contrast(1.12); z-index: 2; }
+.photo input { display: none; }
+.photo .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; color: var(--ink); }
+.photo .ph svg { width: 100%; height: auto; display: block; }
+.photo .ph span { position: absolute; top: 3mm; left: 0; right: 0; text-align: center; font: 700 5.6pt/1.35 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.photo .corner { position: absolute; width: 4mm; height: 4mm; border-color: var(--ink); border-style: solid; z-index: 1; }
+.photo .c1 { top: 1.2mm; left: 1.2mm; border-width: .4mm 0 0 .4mm; } .photo .c2 { top: 1.2mm; right: 1.2mm; border-width: .4mm .4mm 0 0; }
+.photo .c3 { bottom: 1.2mm; left: 1.2mm; border-width: 0 0 .4mm .4mm; } .photo .c4 { bottom: 1.2mm; right: 1.2mm; border-width: 0 .4mm .4mm 0; }
+
+.f-kicker { font: 700 6.6pt/1 var(--mono); letter-spacing: .24em; text-transform: uppercase; opacity: .85; }
+.f-name { font: 400 44pt/.92 var(--display); letter-spacing: .01em; text-transform: uppercase; margin: 1.4mm 0 .8mm; }
+.f-role { font: italic 700 10.4pt/1.2 var(--serif); }
+.f-role b { font-style: normal; font-family: var(--sans); font-weight: 700; letter-spacing: .04em; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 2.6mm; border-top: .35mm solid var(--paper); }
+.stat { padding: 2.4mm 2.4mm 0 0; }
+.stat + .stat { border-left: .2mm solid rgba(255,255,255,.55); padding-left: 2.6mm; }
+.stat .v { font: 400 30pt/1 var(--display); letter-spacing: .01em; white-space: nowrap; }
+.stat .v small { font-size: 13pt; }
+.stat .l { font: 700 6.3pt/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; margin-top: 1.2mm; }
+.stat .d { font: 400 6.9pt/1.35 var(--sans); opacity: .9; margin-top: .8mm; }
+.f-story { margin-top: 2.4mm; border-top: .2mm solid rgba(255,255,255,.55); padding-top: 1.8mm; font: 400 7pt/1.4 var(--sans); }
+.f-story b { font-weight: 700; }
+.f-src { grid-column: 1 / -1; font: 400 5.2pt/1.35 var(--mono); opacity: .7; letter-spacing: .02em; }
+
+/* On-screen helper bar */
+.helper { width: 210mm; margin: 6mm auto 0; font: 500 12px/1.45 var(--sans); color: #111; background: #fff; padding: 10px 14px; border-radius: 8px; }
+.helper button { font: 700 12px var(--sans); padding: 6px 12px; border: 2px solid #000; background: #000; color: #fff; border-radius: 6px; cursor: pointer; margin-right: 6px; }
